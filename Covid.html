@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Covid Project - Emil Lubbat's Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="Projects.html" class="logo">Projects</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="Projects.html">Projects</a></li>
+							<li><a href="SQL.html">SQL</a></li>
+							<li><a href="Dashboards.html">Dashboards</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/emil-lubbat-11b520249/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/EmilLubbat" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">February 12, 2024</span>
+									<h1>Covid Cases</h1>
+									<p>This project explores the relationtionship between<br />
+										the rate of covid cases and the death rate caused by covid<br />
+										in countries around the world.</p>
+								</header>
+								<h3>Data collection and cleaning</h3>
+								<p>The data used in this project has been obtained from pulicly acessable data on Kaggel.com. Although this data has already been compiled, it is neccessary to clean the data so as to only use that which will be analysed and maintain good data standards.
+								<br>In this example, there are many fields which are irellevant to the analysis and can be easily cleansed. There are also records which overlap with others when grouped. These records however are only in a few cases which can be easily amended with an extra line of code.</br>
+								<br>When importing any data it is always useful to check that the data is stored in the appropriate format. This can be done within the database if the data is stored in a spreadsheet; while importing into a SQL software using the programs tools; or by casting within a query.</br>
+								</p>
+								<h3>Data Exploration</h3>
+								<p>Using SQL, the data can be explored to identify specified datapoints or to create new tables to use for a dashboard for more visual and readable insights into the data.
+								<br>For example, if only UK data is wanted to be viewed, the following query can be written:</br></p>
+								<div class="image main"><img src="images/UK.PNG" alt="" /></div>
+								<p></p>
+								<p>Creating views allows subsequent code to query off these views as if they are their own tables. This allows for further analysis into the data.</p>
+								<div class="image main"><img src="images/VacView.PNG" alt="" /></div>
+								<p>As views act as new tables, they can aslo be created to import new tables into a dashboard bulider.</p>
+								<div class="image main"><img src="images/Views.PNG" alt="" /></div>
+								<p>The <a href="https://github.com/EmilLubbat/Portfolio-Projects/blob/main/SQL%20Queries%20for%20Portfolio%20Practice%20Project%20-%20Covid.sql" target="_blank">completed queries</a> can now be displayed in a dashboard.</p>
+								<h3>Data Mapping</h3>
+								<p>Microsoft Power BI and Tableau Desktop can be connected directly to the SQL server, automatically importing all of the tables created and will update with live changes to the data or queries. Tableau Public, however, cannot connect directly to SSMS so each table needs to be imported as CSV files.</p>
+								<p>After importing these tables into Tableau or Power BI, the relationships between the tables needs to be identified using a data model. In this case: the HighestInfections and HighestDailyInfections tables share the Location fields; the HighestDailyInfections and TotalDeathPerContinent tables share the Continent fields; the TotalDeathPerContinent and GlobalDeathPerCase tables share the total_cases fields.<br />
+									In this case, the data model will also help to make the dashboard interactive.
+								</p>
+								<div class="image main"><img src="images/covid model final.PNG" alt="" /></div>
+								<p>The dashboard will show the relationship between covid cases and deaths for different countries around the world so only the queried data relating to infection, deaths and location highlighted in the data model above will be used to build the dashboard.</p>
+								<p>Now the dashboard can be built by adding visualisations of the data.  </p>
+								<h3>Data Visualisations</h3>
+								<div class="image main"><img src="images/totals.PNG" alt="" />Firstly the GlobalDeathPerCase table can be simply represented with their values in cards or a table as they are just total values with no other variables.</div>
+								<div class="image main"><img src="images/continent.PNG" alt="" />The TotalDeathPerContinent table can also be displayed as a simple bar chart as it is measuring the quantitative variable of total deaths, which is on the y-axis, against the qualitative vairiable of Continent, which is on the x-axis.</div>
+								<div class="image main"><img src="images/map.PNG" alt="" />Next, the HighestInfections table can be shown with a map, using the PercentPopulationInfection field as the legend to display the severity of infcetion of each county around the world.</div>
+								<div class="image main"><img src="images/top 10.PNG" alt="" />Lastly, the HighestDailyInfections table can be plotted into a line chart as both the measured variables of time, on the x-axis, and infections, on the y-axis, are continuous variables.
+								<p><br>To show seperate lines for different countries, the location field should be added to the legend. Displaying every country on this chart would make the visualisation unreadable so the location must be filtered to only display the top 10 countries with the highest PercentPopulationInfection in this case.</br></p></div>
+								<p>After arranging these visualisations on the dashboard, adding navigation buttons and setting some visualisations to be used as filters will make the dashboard interactive.
+									<br>This is possible due to the relationships between the charts that were assigned in the data model before.</br>
+								</p>
+								<div class="image main"><img src="images/dash ukvssp.PNG" alt="" />Here, the buttons for the UK and Spain have been selected so the data from these countries can be easily compared.</div>
+								<p>The <a href="Covid Dashboards.html">completed dashboards</a> are now ready to be sent and used by those whom they have been created for <br>(such as directors and steakholders).</br></p>
+							</section>
+
+						<!-- Footer -->
+							<footer>
+								<div class="pagination">
+									<!--<a href="#" class="previous">Prev</a>-->
+									<a href="Projects.html" class="page">Back</a>
+								
+								</div>
+							</footer>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Richmond, TW10<br />
+								London, United Kingdom</p>
+							</section>
+
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:info.emillubbat@gmail.com" target="_blank">info.emillubbat@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+
+									<li><a href="https://www.linkedin.com/in/emil-lubbat-11b520249/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/EmilLubbat" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Emil Lubbat</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
